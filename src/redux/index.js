@@ -5,4 +5,4 @@ const plussPay = (data)=>{
         payload:data
     }
 }
-export {plussPay}
+export default {plussPay}
