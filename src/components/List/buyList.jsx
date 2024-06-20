@@ -11,7 +11,6 @@ function showToast() {
   }, 3000);
 }
 export default function Card() {
-  const [isoff , setisoff] = useState(false)
   return (
     <div className="allCard">
       {db.map((item, index) => (
@@ -23,15 +22,12 @@ export default function Card() {
             {
                 (item.offPrice) ? (
               <>
+               
+              <p className="price display offStyle">{item.price}</p>
               <p className="display">{item.offPrice}</p>
-                  {setisoff(true)}
               </>
-              ) : null
+              ) :  <p className="price display">{item.price}</p>
             }
-
-          {/* {
-            setisoff===true ?  <p className="price display offStyle"> ${item.price} </p> : <p className="price display"> ${item.price} </p>
-          } */}
           </div>
         
             <div id="toast" className="toast">
