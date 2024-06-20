@@ -2,6 +2,7 @@
 import "./buyList.css";
 import db from "../db/data.json";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useState } from "react";
 function showToast() {
   var toastElement = document.getElementById("toast");
   toastElement.className = "toast show";
@@ -9,8 +10,8 @@ function showToast() {
     toastElement.className = toastElement.className.replace("show", "");
   }, 3000);
 }
-
 export default function Card() {
+  const [isoff , setisoff] = useState(false)
   return (
     <div className="allCard">
       {db.map((item, index) => (
@@ -18,7 +19,21 @@ export default function Card() {
           <img src={item.src} alt="" />
           <p className="p1">{item.type}</p>
           <p className="p2">{item.name}</p>
-          <p className="price">${item.price}</p>
+          <div className="display">
+            {
+                (item.offPrice) ? (
+              <>
+              <p className="display">{item.offPrice}</p>
+                  {setisoff(true)}
+              </>
+              ) : null
+            }
+
+          {/* {
+            setisoff===true ?  <p className="price display offStyle"> ${item.price} </p> : <p className="price display"> ${item.price} </p>
+          } */}
+          </div>
+        
             <div id="toast" className="toast">
               plant added to basket shop!
             </div>

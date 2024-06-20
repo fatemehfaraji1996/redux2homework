@@ -1,1 +1,1 @@
-export const PLUSS_PAY ="plass/pay"
+export const PLUSS_PAY = "plass/pay"
